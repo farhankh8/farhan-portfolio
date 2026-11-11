@@ -1157,3 +1157,15 @@ section {
   font-weight: 600;
   cursor: default;
 }
+
+/* Skill level indicators — distinguish practical vs training vs working knowledge */
+.skill-level {
+  font-size: 0.58rem;
+  font-weight: 600;
+  margin-left: 0.25rem;
+  opacity: 0.75;
+  white-space: nowrap;
+}
+.level-project { color: var(--primary); }
+.level-training { color: var(--accent); }
+.level-working { color: var(--ink-dim); }
