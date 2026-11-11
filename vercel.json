@@ -1,0 +1,30 @@
+{
+  "outputDirectory": ".",
+  "framework": null,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "routes": [
+    {
+      "src": "/style.css",
+      "headers": {
+        "content-type": "text/css"
+      }
+    },
+    {
+      "src": "/tailwind.css",
+      "headers": {
+        "content-type": "text/css"
+      }
+    },
+    {
+      "src": "/app.js",
+      "headers": {
+        "content-type": "application/javascript"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
