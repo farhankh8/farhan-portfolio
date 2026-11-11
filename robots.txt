@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://farhankh8.github.io/portfolio/sitemap.xml
+Sitemap: https://farhan-portfolio-seven-opal.vercel.app/sitemap.xml
