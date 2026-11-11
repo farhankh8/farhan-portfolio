@@ -182,7 +182,7 @@ function initContactForm() {
 
   if (!form) return;
 
-  emailjs.init('F18OtQtpQpinAJBLX');
+  emailjs.init('7BuqXseESSYiJ0N80');
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -200,7 +200,7 @@ function initContactForm() {
       reply_to: form.elements['from_email'].value,
     };
 
-    emailjs.send('service_1al0ayb', 'template_4ylimoi', templateParams)
+    emailjs.send('service_oy86v7p', 'template_s314x65', templateParams)
       .then(() => {
         btn.innerHTML = originalBtnText;
         btn.disabled = false;
