@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom design tokens */
+@layer base {
+  :root {
+    --bg-dark: #08090d;
+    --surface-900: #0d1017;
+    --surface-800: #131722;
+    --surface-700: #1b2130;
+    --surface-600: #252d42;
+    --indigo-primary: #6366f1;
+    --cyan-primary: #06b6d4;
+    --emerald-primary: #10b981;
+    --purple-primary: #a855f7;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #ffffff 10%, #a5b4fc 60%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-gradient-cyan {
+    background: linear-gradient(135deg, #ffffff 10%, #67e8f9 60%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

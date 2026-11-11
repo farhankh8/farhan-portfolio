@@ -1,0 +1,16 @@
+{
+  "name": "farhan-portfolio",
+  "version": "2.0.0",
+  "description": "World-class engineering portfolio for KH Mohammad Farhan - Full-Stack SaaS Architect & Enterprise Data / ERP Specialist",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./input.css -o ./tailwind.css --watch",
+    "build": "tailwindcss -i ./input.css -o ./tailwind.css --minify",
+    "preview": "python -m http.server 3000"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  }
+}

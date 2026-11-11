@@ -1,0 +1,192 @@
+================================================================================
+  KH MOHAMMAD FARHAN — CURRICULUM VITAE
+================================================================================
+
+Full-Stack SaaS Architect & Enterprise Data / ERP Specialist
+Bengaluru, Karnataka, India
+Email: khmohammadfarhan.job@gmail.com | LinkedIn: linkedin.com/in/khmohammadfarhan
+GitHub: github.com/farhankh8 | Availability: Immediate Joiner
+Open to GCC relocation · Employer sponsorship required where applicable
+
+================================================================================
+  PROFESSIONAL SUMMARY
+================================================================================
+
+Enterprise-grade software architect specializing in Full-Stack SaaS, AI Agents,
+Enterprise ERP (SAP S/4HANA Finance, GCC VAT/GST), and Advanced Analytics
+(Power BI, DuckDB, Python). Architect of five production and development
+platforms encompassing 2,061 verified automated tests, 54 production DAX
+measures, and integrated financial workflows spanning SAP S/4HANA Finance,
+Indian GST, and GCC VAT.
+
+================================================================================
+  EDUCATION
+================================================================================
+
+Bachelor of Computer Applications (BCA)                                    2023 – 2026
+Yenepoya University, Bengaluru, Karnataka, India
+CGPA: 8.10 / 10.0
+Specialization: Artificial Intelligence, Cloud Computing & DevOps
+
+Graduated with distinction. Concurrently architected five end-to-end software
+platforms during academic tenure spanning Full-Stack SaaS, Data Analytics, and
+Enterprise ERP systems.
+
+Senior Secondary School (CBSE)                                             Completed
+SDM English Medium School, Ujire
+Grade: 70.2%
+
+================================================================================
+  CERTIFICATIONS (7 Verified)
+================================================================================
+
+1. SAP S/4HANA Finance – Financial Accounting                        Aug 2026
+   SAP Partner – EME Education | Credential ID: EME-ENR-LH_BE-68
+
+2. Power BI for Business Intelligence                              Oct 2026
+   Enertech Academy | Skills: DAX, Power Query, Data Modeling
+
+3. Advanced Microsoft Excel                                        Sep 2026
+   Enertech Academy | Skills: Pivot Tables, Financial Forecasting, Data Cleaning
+
+4. Google Advanced Data Analytics Professional                     Dec 2025
+   Google • Coursera | ID: 63694VDZDXAG
+
+5. Microsoft AI & ML Engineering Professional                      Dec 2025
+   Microsoft • Coursera | ID: TBESQETC4UNQ
+
+6. IBM Generative AI Engineering Professional                      Dec 2025
+   IBM • Coursera | ID: MLI3B2IJOX28
+
+7. IBM Front-End Developer Professional Certificate                Dec 2025
+   IBM • Coursera | ID: 6K0DWJF3SC0E
+
+Additional: Google Data Analytics, Google Project Management, Google IT
+Automation with Python, Tata Forage Job Simulations (GenAI Data Analytics,
+Data Visualisation), TCS iON Basic DevOps Engineering Certification.
+
+================================================================================
+  TECHNICAL SKILLS
+================================================================================
+
+SOFTWARE ENGINEERING & CLOUD
+- Programming Languages: Python, JavaScript, TypeScript, SQL, HTML5, CSS3
+- Frontend: React, Next.js, Tailwind CSS, Zustand, TanStack Query, Vite
+- Backend: Node.js, NestJS, Express, Python FastAPI, Prisma, Mongoose
+- Cloud & DevOps: Docker, Docker Compose, Redis, BullMQ, GitHub Actions,
+  Vercel, Render
+- Security & QA: JWT, TOTP 2FA, API Security, Playwright, Jest, Pytest, k6
+
+DATA ANALYTICS, BI & ERP
+- Data Analytics: Python for Data Analysis, SQL, Data Cleaning, Data
+  Transformation, Data Visualization, Statistical Analysis
+- Business Intelligence: Microsoft Power BI, DAX, Power Query, Star Schema,
+  Dashboard Development, Analytical Reporting
+- Advanced Excel: Pivot Tables, Pivot Charts, XLOOKUP, VLOOKUP, INDEX/MATCH,
+  SUMIFS, Conditional Formatting, Data Validation
+- ERP & Financial Systems: SAP S/4HANA Finance, SAP FI/CO concepts, General
+  Ledger, Accounts Payable, Accounts Receivable, Tally ERP, Financial
+  Accounting
+- Tax & Business Processes: Indian GST concepts, GCC VAT concepts, Financial
+  Reporting, Invoice Workflows, Business Process Analysis
+
+================================================================================
+  PROJECTS
+================================================================================
+
+1. AI Business Intelligence & Data Analytics Platform              Featured
+   Next.js 16, NestJS, Python 3.11, DuckDB, PyArrow, PostgreSQL 16
+   GitHub: github.com/farhankh8/-ai-business-intelligence-platform-
+   - 2,061 verified automated tests with zero failures
+   - Exact-decimal Python data engine eliminating floating-point drift
+   - BullMQ background worker with Dead-Letter Queue replay
+   - One-command zero-warning launcher (~0.4s cold boot)
+
+2. AEROVISION 360 — Global Multi-Airline Intelligence Platform     Completed
+   Power BI Desktop, DAX, Power Query M, Python, Advanced Excel
+   GitHub: github.com/farhankh8/aerovision-360-platform
+   - 54 validated DAX measures across 16 semantic tables
+   - 120 interactive visuals across 5 executive dashboards
+   - 10 global carriers modeled (Emirates, Qatar, Singapore Airlines, etc.)
+   - 609/609 unit tests passed; SHA-256 manifest governance (GOV-D-07)
+
+3. FreelanceFlow — Enterprise Freelance & Agency Management        Live
+   React 19, Vite 8, Node.js, Express 5, MongoDB Atlas, Razorpay, jsPDF
+   Live: freelanceflow-gules.vercel.app | GitHub: github.com/farhankh8/freelanceflow
+   - 322 production deployments on Vercel + Render
+   - Role-Based Access Control: Manager, Worker, Admin, Viewer
+   - GST-compliant invoice generation with automatic tax breakdown
+   - Speakeasy TOTP 2FA, Helmet CSP, rate limiting
+
+4. Roamind — AI Travel Super-Platform                              Live
+   Next.js 16 App Router, React 19, Tailwind CSS 4, Firebase, Gemini API,
+   Anthropic Claude API, Leaflet Maps, Framer Motion
+   Live: roamind.vercel.app | GitHub: github.com/farhankh8/roamind
+   - AI-powered multi-day itinerary generation (Gemini + Claude)
+   - 50+ country visa regulations database
+   - Live INR currency conversion, weather & AQI tracking
+   - PWA ready with offline trip caching
+
+5. FusionOS — AI-Native Business Operating System                  In Development
+   NestJS, Next.js 15, TypeScript, PostgreSQL, Prisma, Ollama
+   GitHub: github.com/zorvexa/fusionos
+   - Multi-tenant Business Operating System / ERP SaaS
+   - Modules: Auth, Organization, Employees, Attendance, Leave, Payroll,
+     Finance, CRM, Projects, Documents, Assets, Analytics, Automation
+   - AI Command Center with local Ollama LLM integration
+   - GitHub Actions CI/CD with Prisma validation and secret scanning
+
+================================================================================
+  PROFESSIONAL EXPERIENCE
+================================================================================
+
+Web Development Intern                                               Feb 2026 – Apr 2026
+Persevex Education Consultancy LLP · Bengaluru (Hybrid)
+
+- Developed and enhanced web application components using React and JavaScript.
+- Worked with Node.js and relational (MySQL) and NoSQL (MongoDB) database
+  fundamentals.
+- Assisted with application features, API integration, debugging and
+  troubleshooting.
+- Collaborated with engineering mentors and incorporated technical feedback.
+
+================================================================================
+  CASE STUDIES
+================================================================================
+
+1. AI BI Platform — Eliminating Float Drift in Financial Ledgers
+   Problem: Revenue reconciliation mismatches of 0.01–0.50 currency units per
+   transaction due to IEEE 754 floating-point inaccuracy.
+   Solution: Python DuckDB + PyArrow data engine using Decimal128 exact-decimal
+   currency type.
+   Result: Zero float drift, 2,061 tests passing, ~0.4s cold boot, audit-ready.
+
+2. AEROVISION 360 — Hash-Governed Data Integrity
+   Problem: No single source of truth across 10 airlines; data silently mutated
+   between refreshes.
+   Solution: SHA-256 canonical hash verification on 34 manifests; star-schema
+   dimensional model.
+   Result: 34/34 manifests verified, 120 executive visuals, 609/609 tests,
+   audit-grade integrity.
+
+3. FreelanceFlow — GST-Compliant Fintech SaaS
+   Problem: Manual GST invoicing prone to tax calculation errors and slow PDF
+   delivery.
+   Solution: Automated GST engine with Zod validation, Razorpay webhooks,
+   jsPDF instant export.
+   Result: 322 deployments, zero-downtime releases, 4-tier RBAC, live on
+   production.
+
+================================================================================
+  AVAILABILITY
+================================================================================
+
+- Immediate Joiner
+- Open to GCC relocation (Dubai, Abu Dhabi, Riyadh) · Employer sponsorship
+  required where applicable
+- GCC Visa support where applicable
+- Notice Period: Immediate
+
+================================================================================
+  END OF CV
+================================================================================

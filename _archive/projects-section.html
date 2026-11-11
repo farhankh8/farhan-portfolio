@@ -1,0 +1,220 @@
+<!-- ==========================================================================
+     ARCHIVED — Projects Section ("Software Products & Business Intelligence Platforms")
+     Temporarily removed from index.html on 2026-11-11.
+     This file is NOT linked from the site. Keep it for the future rebuild.
+
+     NOTE: The live markup had two stray </div> tags after the featured AI BI card
+     (left over from a removed wrapper). They were cleaned up in this archive copy
+     so the section can be pasted back with valid nesting.
+
+     To restore:
+       1. Paste the <section id="projects"> block back into index.html, directly
+          before the "Enterprise Systems & Financial Knowledge" section.
+       2. Re-add the "Projects" links to the desktop and mobile navigation.
+       3. Restore the project-only CSS from _archive/projects-styles.css into style.css.
+       4. Restore the filter logic from _archive/projects-filter.js into app.js and
+          call initProjectFilters() inside the DOMContentLoaded handler.
+     ========================================================================== -->
+
+  <!-- Featured Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+        <div class="section-header reveal" style="text-align: left; max-width: none; margin: 0;">
+          <span class="eyebrow">Selected Engineering Work</span>
+          <h2 class="section-title" style="font-size: 2rem;">Software Products &amp; Business Intelligence Platforms</h2>
+          <p class="section-desc">A selection of independent products and engineering projects demonstrating my interests in software development, AI applications, business intelligence, enterprise workflows and data engineering.</p>
+        </div>
+      </div>
+
+              <!-- Project 1: AI Business Intelligence Platform -->
+        <article class="card reveal project-card" data-category="saas-tech">
+          <div style="margin-bottom: 1rem;">
+            <div class="tag" style="border-color: rgba(99, 102, 241, 0.3); color: var(--primary); margin-bottom: 0.5rem;">Featured · AI BI</div>
+            <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 0.5rem;">AI Business Intelligence &amp; Data Analytics Platform</h3>
+            <p class="card-desc" style="margin-bottom: 1rem; font-size: 0.8rem; line-height: 1.5;">AI-powered business intelligence platform transforming business documents into analytical insights.</p>
+            <div class="flex flex-wrap gap-1 mb-1">
+              <span class="tech-tag" style="border-color: rgba(99, 102, 241, 0.3);">Next.js</span>
+              <span class="tech-tag" style="border-color: rgba(99, 102, 241, 0.3);">NestJS</span>
+              <span class="tech-tag" style="border-color: rgba(99, 102, 241, 0.3);">Python</span>
+              <span class="tech-tag" style="border-color: rgba(99, 102, 241, 0.3);">DuckDB</span>
+              <span class="tech-tag" style="border-color: rgba(99, 102, 241, 0.3);">PostgreSQL</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Status</span>
+            <span class="text-xs font-mono text-indigo-400 font-semibold inline-block">Independent project</span>
+          </div>
+          <a href="https://github.com/farhankh8/-ai-business-intelligence-platform-" target="_blank" class="btn btn-primary btn-sm" style="width: fit-content;">Repository</a>
+        </article>
+
+      <!-- Project Grid -->
+      <div class="projects-grid" id="projectsContainer">
+
+        <!-- Project 2: AEROVISION 360 -->
+        <article class="card reveal project-card" data-category="data-erp" style="padding: 2.5rem;">
+          <div style="margin-bottom: 1.5rem;">
+            <div class="tag" style="border-color: rgba(34, 211, 238, 0.3); color: var(--accent); margin-bottom: 0.75rem;">Aviation BI · Power BI · Data Analytics</div>
+            <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">AEROVISION 360 — Airline Business Intelligence &amp; Analytics</h3>
+            <p class="card-desc" style="margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.7;">An airline analytics project focused on understanding commercial performance, passenger revenue, network capacity and operational indicators across multiple airlines. The project explores how aviation data can be organized into analytical models and interactive reporting to support business performance evaluation.</p>
+            <div style="margin-bottom: 1.5rem;">
+              <span class="text-xs font-mono text-slate-500 block mb-1">Analytical areas:</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-pill">Revenue performance</span>
+                <span class="skill-pill">Passenger &amp; booking analysis</span>
+                <span class="skill-pill">Available Seat Kilometres (ASK)</span>
+                <span class="skill-pill">Revenue Passenger Kilometres (RPK)</span>
+                <span class="skill-pill">Passenger yield</span>
+                <span class="skill-pill">Load factor</span>
+                <span class="skill-pill">Airline &amp; route comparisons</span>
+                <span class="skill-pill">Operational performance indicators</span>
+              </div>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Technology stack:</span>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">Power BI</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">DAX</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">Power Query M</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">Advanced Excel</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">Python</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">SQL</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Business value:</span>
+            <p class="text-sm text-slate-400 leading-relaxed mb-3">Connects airline operational and commercial data with analytical reporting to support clearer performance evaluation and business decision-making.</p>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Status</span>
+            <span class="text-xs font-mono text-cyan-400 font-semibold inline-block">Independent BI &amp; analytics project</span>
+          </div>
+          <a href="https://github.com/farhankh8/aerovision-360-platform" target="_blank" class="btn btn-primary btn-sm" style="width: fit-content;">Explore Project</a>
+        </article>
+
+        <!-- Project 3: FreelanceFlow -->
+        <article class="card reveal project-card" data-category="saas-tech" style="padding: 2.5rem;">
+          <div style="margin-bottom: 1.5rem;">
+            <div class="tag" style="border-color: rgba(99, 102, 241, 0.3); color: var(--primary); margin-bottom: 0.75rem;">Full-Stack SaaS · Business Management</div>
+            <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">FreelanceFlow — Freelance &amp; Agency Management Platform</h3>
+            <p class="card-desc" style="margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.7;">A full-stack business management application designed to organize freelance and agency workflows within one platform. The application brings together client management, projects, tasks, time tracking, invoicing and business operations.</p>
+            <div style="margin-bottom: 1.5rem;">
+              <span class="text-xs font-mono text-slate-500 block mb-1">Key capabilities:</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-pill">Client &amp; project management</span>
+                <span class="skill-pill">Task &amp; workflow management</span>
+                <span class="skill-pill">Time tracking</span>
+                <span class="skill-pill">Invoice generation</span>
+                <span class="skill-pill">GST-oriented invoice workflows</span>
+                <span class="skill-pill">Payment integration</span>
+                <span class="skill-pill">Role-based access concepts</span>
+                <span class="skill-pill">Business reporting</span>
+              </div>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Technology stack:</span>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="tag" style="border-color: rgba(99, 102, 241, 0.3);">React</span>
+              <span class="tag" style="border-color: rgba(99, 102, 241, 0.3);">Node.js</span>
+              <span class="tag" style="border-color: rgba(99, 102, 241, 0.3);">Express</span>
+              <span class="tag" style="border-color: rgba(99, 102, 241, 0.3);">MongoDB</span>
+              <span class="tag" style="border-color: rgba(99, 102, 241, 0.3);">JavaScript</span>
+              <span class="tag" style="border-color: rgba(99, 102, 241, 0.3);">APIs</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Business value:</span>
+            <p class="text-sm text-slate-400 leading-relaxed mb-3">Provides a structured way to manage client relationships, project activity and administrative workflows.</p>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Status</span>
+            <span class="text-xs font-mono text-indigo-400 font-semibold inline-block">Deployed application</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <a href="https://freelanceflow-gules.vercel.app/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+            <a href="https://github.com/farhankh8/freelanceflow" target="_blank" class="btn btn-ghost btn-sm">GitHub Repository</a>
+          </div>
+        </article>
+
+        <!-- Project 4: Roamind -->
+        <article class="card reveal project-card" data-category="saas-tech" style="padding: 2.5rem;">
+          <div style="margin-bottom: 1.5rem;">
+            <div class="tag" style="border-color: rgba(34, 211, 238, 0.3); color: var(--accent); margin-bottom: 0.75rem;">AI Application · Travel Technology</div>
+            <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">Roamind — AI-Powered Travel Planning Platform</h3>
+            <p class="card-desc" style="margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.7;">An AI-assisted travel planning application designed to help users organize travel research, itinerary planning and destination information in one experience.</p>
+            <div style="margin-bottom: 1.5rem;">
+              <span class="text-xs font-mono text-slate-500 block mb-1">Key capabilities:</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-pill">AI-assisted itinerary generation</span>
+                <span class="skill-pill">Travel planning</span>
+                <span class="skill-pill">Destination information</span>
+                <span class="skill-pill">Travel budget organization</span>
+                <span class="skill-pill">Accommodation &amp; activity research</span>
+                <span class="skill-pill">Currency &amp; weather information</span>
+                <span class="skill-pill">Travel-related guidance</span>
+              </div>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Technology stack:</span>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">Next.js</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">React</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">TypeScript</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">Firebase</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">Tailwind CSS</span>
+              <span class="tag" style="border-color: rgba(34, 211, 238, 0.3);">AI integrations</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Business value:</span>
+            <p class="text-sm text-slate-400 leading-relaxed mb-3">Aims to make travel planning more organized by bringing together itinerary creation and useful destination information.</p>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Status</span>
+            <span class="text-xs font-mono text-cyan-400 font-semibold inline-block">Independent travel technology project</span>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-4">
+            <a href="https://roamind.vercel.app/" target="_blank" class="btn btn-primary btn-sm">Live Demo</a>
+            <a href="https://github.com/farhankh8/roamind" target="_blank" class="btn btn-ghost btn-sm">GitHub Repository</a>
+          </div>
+        </article>
+
+        <!-- Project 5: FusionOS -->
+        <article class="card reveal project-card" data-category="saas-tech" style="padding: 2.5rem;">
+          <div style="margin-bottom: 1.5rem;">
+            <div class="tag" style="border-color: rgba(16, 185, 129, 0.3); color: var(--success); margin-bottom: 0.75rem;">ERP SaaS · Business Operations · In Development</div>
+            <h3 class="card-title" style="font-size: 1.25rem; margin-bottom: 0.75rem;">FusionOS — AI-Native Business Operating System</h3>
+            <p class="card-desc" style="margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.7;">An enterprise-oriented business operating system concept designed to connect business functions through a centralized application and data architecture. The project explores how HR, finance, employee operations, CRM, projects and analytics can be organized within a unified multi-tenant platform.</p>
+            <div style="margin-bottom: 1.5rem;">
+              <span class="text-xs font-mono text-slate-500 block mb-1">Planned &amp; implemented areas:</span>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-pill">Organization management</span>
+                <span class="skill-pill">Employee management</span>
+                <span class="skill-pill">Attendance management</span>
+                <span class="skill-pill">Leave management</span>
+                <span class="skill-pill">Payroll management</span>
+                <span class="skill-pill">Finance &amp; business operations</span>
+                <span class="skill-pill">CRM &amp; project workflows</span>
+                <span class="skill-pill">AI-assisted business automation</span>
+              </div>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Technology stack:</span>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">Next.js</span>
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">React</span>
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">TypeScript</span>
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">NestJS</span>
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">Prisma</span>
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">PostgreSQL</span>
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">Redis</span>
+              <span class="tag" style="border-color: rgba(16, 185, 129, 0.3);">Docker</span>
+            </div>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Business value:</span>
+            <p class="text-sm text-slate-400 leading-relaxed mb-3">Explores a unified platform architecture for reducing disconnected business workflows and improving organizational visibility.</p>
+            <span class="text-xs font-mono text-slate-500 block mb-1">Status</span>
+            <span class="text-xs font-mono text-success font-semibold inline-block">In Development</span>
+          </div>
+          <a href="https://github.com/zorvexa/fusionos" target="_blank" class="btn btn-primary btn-sm mt-4" style="width: fit-content;">Explore Repository</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+<!-- ==========================================================================
+     ARCHIVED — Project detail modal
+     Was an unused project-section leftover that called an undefined closeModal().
+     ========================================================================== -->
+  <!-- Project Modal -->
+  <div id="projectModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md">
+    <div class="bg-surface border border-white/10 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 p-2 rounded-lg bg-surface-2 hover:bg-surface-3 text-slate-300 hover:text-white transition-colors">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
