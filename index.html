@@ -1251,15 +1251,18 @@
           <!-- Contact Form -->
           <div class="contact-form reveal">
             <h3>Send Me a Message</h3>
-            <form id="contactForm" class="space-y-3" action="mailto:khmohammadfarhan.job@gmail.com" method="post" enctype="text/plain">
+            <form id="contactForm" class="space-y-3" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="4e619d43-f465-41ca-95a5-4587ee56fcdf">
+  <input type="hidden" name="to_email" value="khmohammadfarhan.job@gmail.com">
+  <input type="hidden" name="subject" value="Portfolio enquiry from {{name}}">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div class="form-group">
                   <label for="contactName">Your Name</label>
-                  <input id="contactName" type="text" name="from_name" autocomplete="name" required placeholder="e.g. Sarah Chen">
+                  <input id="contactName" type="text" name="name" autocomplete="name" required placeholder="e.g. Sarah Chen">
                 </div>
                 <div class="form-group">
                   <label for="contactEmail">Your Email</label>
-                  <input id="contactEmail" type="email" name="from_email" autocomplete="email" required placeholder="e.g. sarah@company.com">
+                  <input id="contactEmail" type="email" name="email" autocomplete="email" required placeholder="e.g. sarah@company.com">
                 </div>
               </div>
               <div class="form-group">
@@ -1325,6 +1328,7 @@
     <span id="toastMsg">Action completed successfully</span>
   </div>
 
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/4.4.1/email.min.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

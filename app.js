@@ -188,28 +188,38 @@ function initContactForm() {
     if (!form.reportValidity()) return;
 
     const originalBtnText = btn.innerHTML;
-    btn.innerHTML = 'Opening email…';
+    btn.innerHTML = 'Sending...';
     btn.disabled = true;
 
-    const name = form.elements['from_name'].value;
-    const email = form.elements['from_email'].value;
-    const message = form.elements['message'].value;
+    const formData = new FormData(form);
 
-    const subject = `Portfolio enquiry from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-    const mailto = `mailto:khmohammadfarhan.job@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(async (response) => {
+        btn.innerHTML = originalBtnText;
+        btn.disabled = false;
 
-    window.location.href = mailto;
-
-    btn.innerHTML = originalBtnText;
-    btn.disabled = false;
-    form.reset();
-
-    if (successMsg) {
-      successMsg.classList.remove('hidden');
-      setTimeout(() => { successMsg.classList.add('hidden'); }, 7000);
-    }
-    showToast('Your email app should open with the message ready to send.');
+        if (response.ok) {
+          form.reset();
+          if (successMsg) {
+            successMsg.classList.remove('hidden');
+            setTimeout(() => { successMsg.classList.add('hidden'); }, 7000);
+          }
+          showToast('Message sent successfully!');
+        } else {
+          const result = await response.json();
+          showToast('Failed to send. Please try again.');
+          console.error('Web3Forms error:', result);
+        }
+      })
+      .catch((error) => {
+        btn.innerHTML = originalBtnText;
+        btn.disabled = false;
+        showToast('Failed to send. Please try again.');
+        console.error('Web3Forms error:', error);
+      });
   });
 }
 
