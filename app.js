@@ -182,10 +182,7 @@ function initContactForm() {
 
   if (!form) return;
 
-  emailjs.init({
-    publicKey: '7BuqXseESSYiJ0N80',
-  });
-
+  // Always prevent form refresh, even if EmailJS fails
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -201,6 +198,17 @@ function initContactForm() {
       message: form.elements['message'].value,
       reply_to: form.elements['from_email'].value,
     };
+
+    if (typeof emailjs === 'undefined') {
+      btn.innerHTML = originalBtnText;
+      btn.disabled = false;
+      showToast('Email service not loaded. Please refresh and try again.');
+      return;
+    }
+
+    emailjs.init({
+      publicKey: '7BuqXseESSYiJ0N80',
+    });
 
     emailjs.send('service_oy86v7p', 'template_s314x65', templateParams)
       .then(() => {
