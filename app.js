@@ -182,27 +182,9 @@ function initContactForm() {
 
   if (!form) return;
 
-  // Always prevent form refresh, even if EmailJS fails
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    if (!form.reportValidity()) return;
-
-    const originalBtnText = btn.innerHTML;
-    btn.innerHTML = 'Sending...';
-    btn.disabled = true;
-
-    const templateParams = {
-      from_name: form.elements['from_name'].value,
-      from_email: form.elements['from_email'].value,
-      message: form.elements['message'].value,
-      reply_to: form.elements['from_email'].value,
-    };
-
+  function setupForm() {
     if (typeof emailjs === 'undefined') {
-      btn.innerHTML = originalBtnText;
-      btn.disabled = false;
-      showToast('Email service not loaded. Please refresh and try again.');
+      setTimeout(setupForm, 300);
       return;
     }
 
@@ -210,24 +192,43 @@ function initContactForm() {
       publicKey: '7BuqXseESSYiJ0N80',
     });
 
-    emailjs.send('service_oy86v7p', 'template_s314x65', templateParams)
-      .then(() => {
-        btn.innerHTML = originalBtnText;
-        btn.disabled = false;
-        form.reset();
-        if (successMsg) {
-          successMsg.classList.remove('hidden');
-          setTimeout(() => { successMsg.classList.add('hidden'); }, 7000);
-        }
-        showToast('Message sent successfully!');
-      })
-      .catch((error) => {
-        btn.innerHTML = originalBtnText;
-        btn.disabled = false;
-        showToast('Failed to send. Please try again.');
-        console.error('EmailJS error:', error);
-      });
-  });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      const originalBtnText = btn.innerHTML;
+      btn.innerHTML = 'Sending...';
+      btn.disabled = true;
+
+      const templateParams = {
+        from_name: form.elements['from_name'].value,
+        from_email: form.elements['from_email'].value,
+        message: form.elements['message'].value,
+        reply_to: form.elements['from_email'].value,
+      };
+
+      emailjs.send('service_oy86v7p', 'template_s314x65', templateParams)
+        .then(() => {
+          btn.innerHTML = originalBtnText;
+          btn.disabled = false;
+          form.reset();
+          if (successMsg) {
+            successMsg.classList.remove('hidden');
+            setTimeout(() => { successMsg.classList.add('hidden'); }, 7000);
+          }
+          showToast('Message sent successfully!');
+        })
+        .catch((error) => {
+          btn.innerHTML = originalBtnText;
+          btn.disabled = false;
+          showToast('Failed to send. Please try again.');
+          console.error('EmailJS error:', error);
+        });
+    });
+  }
+
+  setupForm();
 }
 
 /* ==========================================================================
