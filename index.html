@@ -1251,26 +1251,26 @@
           <!-- Contact Form -->
           <div class="contact-form reveal">
             <h3>Send Me a Message</h3>
-            <form id="contactForm" class="space-y-3" action="mailto:khmohammadfarhan.job@gmail.com" method="post" enctype="text/plain">
+            <form id="contactForm" class="space-y-3">
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div class="form-group">
                   <label for="contactName">Your Name</label>
-                  <input id="contactName" type="text" name="name" autocomplete="name" required placeholder="e.g. Sarah Chen">
+                  <input id="contactName" type="text" name="from_name" autocomplete="name" required placeholder="e.g. Sarah Chen">
                 </div>
                 <div class="form-group">
                   <label for="contactEmail">Your Email</label>
-                  <input id="contactEmail" type="email" name="email" autocomplete="email" required placeholder="e.g. sarah@company.com">
+                  <input id="contactEmail" type="email" name="from_email" autocomplete="email" required placeholder="e.g. sarah@company.com">
                 </div>
               </div>
               <div class="form-group">
                 <label for="contactMessage">Message</label>
                 <textarea id="contactMessage" name="message" rows="4" required placeholder="What would you like to discuss?"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary w-full">Open Email Draft</button>
+              <button type="submit" class="btn btn-primary w-full" id="contactBtn">Send Message</button>
             </form>
             <div id="formSuccess" role="status" aria-live="polite" class="hidden mt-3 p-3 rounded-md bg-success/10 border border-success/20 text-success text-xs font-mono flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-success"></span>
-              <span>Your email app should open with the message ready to send.</span>
+              <span>Message sent successfully!</span>
             </div>
           </div>
 
@@ -1325,6 +1325,7 @@
     <span id="toastMsg">Action completed successfully</span>
   </div>
 
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
