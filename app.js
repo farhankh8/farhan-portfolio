@@ -182,7 +182,9 @@ function initContactForm() {
 
   if (!form) return;
 
-  emailjs.init('7BuqXseESSYiJ0N80');
+  emailjs.init({
+    publicKey: '7BuqXseESSYiJ0N80',
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
