@@ -182,53 +182,35 @@ function initContactForm() {
 
   if (!form) return;
 
-  function setupForm() {
-    if (typeof emailjs === 'undefined') {
-      setTimeout(setupForm, 300);
-      return;
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const originalBtnText = btn.innerHTML;
+    btn.innerHTML = 'Opening email…';
+    btn.disabled = true;
+
+    const name = form.elements['from_name'].value;
+    const email = form.elements['from_email'].value;
+    const message = form.elements['message'].value;
+
+    const subject = `Portfolio enquiry from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const mailto = `mailto:khmohammadfarhan.job@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+
+    btn.innerHTML = originalBtnText;
+    btn.disabled = false;
+    form.reset();
+
+    if (successMsg) {
+      successMsg.classList.remove('hidden');
+      setTimeout(() => { successMsg.classList.add('hidden'); }, 7000);
     }
-
-    emailjs.init({
-      publicKey: '7BuqXseESSYiJ0N80',
-    });
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      if (!form.reportValidity()) return;
-
-      const originalBtnText = btn.innerHTML;
-      btn.innerHTML = 'Sending...';
-      btn.disabled = true;
-
-      const templateParams = {
-        name: form.elements['from_name'].value,
-        email: form.elements['from_email'].value,
-        message: form.elements['message'].value,
-        reply_to: form.elements['from_email'].value,
-      };
-
-      emailjs.send('service_oy86v7p', 'template_s314x65', templateParams)
-        .then(() => {
-          btn.innerHTML = originalBtnText;
-          btn.disabled = false;
-          form.reset();
-          if (successMsg) {
-            successMsg.classList.remove('hidden');
-            setTimeout(() => { successMsg.classList.add('hidden'); }, 7000);
-          }
-          showToast('Message sent successfully!');
-        })
-        .catch((error) => {
-          btn.innerHTML = originalBtnText;
-          btn.disabled = false;
-          showToast('Failed to send. Please try again.');
-          console.error('EmailJS error:', error);
-        });
-    });
-  }
-
-  setupForm();
+    showToast('Your email app should open with the message ready to send.');
+  });
 }
 
 /* ==========================================================================
