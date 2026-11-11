@@ -202,8 +202,8 @@ function initContactForm() {
       btn.disabled = true;
 
       const templateParams = {
-        from_name: form.elements['from_name'].value,
-        from_email: form.elements['from_email'].value,
+        name: form.elements['from_name'].value,
+        email: form.elements['from_email'].value,
         message: form.elements['message'].value,
         reply_to: form.elements['from_email'].value,
       };
