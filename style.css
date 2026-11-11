@@ -1141,3 +1141,19 @@ section {
 .text-slate-500 {
   color: var(--ink-dim);
 }
+
+/* Private repository status — plain, non-clickable text */
+.private-repo-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: default;
+}

@@ -104,6 +104,7 @@ function initMobileMenu() {
    4. Theme Toggle (Dark / Light)
    ========================================================================== */
 function initThemeToggle() {
+  if (!document.getElementById('themeToggle')) return;
   const toggleBtn = document.getElementById('themeToggle');
   const themeIcon = document.getElementById('themeIcon');
   const html = document.documentElement;
