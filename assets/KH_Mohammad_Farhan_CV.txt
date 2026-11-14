@@ -12,12 +12,11 @@ Open to GCC relocation · Employer sponsorship required where applicable
   PROFESSIONAL SUMMARY
 ================================================================================
 
-Enterprise-grade software architect specializing in Full-Stack SaaS, AI Agents,
-Enterprise ERP (SAP S/4HANA Finance, GCC VAT/GST), and Advanced Analytics
-(Power BI, DuckDB, Python). Architect of five production and development
-platforms encompassing 2,061 verified automated tests, 54 production DAX
-measures, and integrated financial workflows spanning SAP S/4HANA Finance,
-Indian GST, and GCC VAT.
+Software engineer specialising in Full-Stack SaaS, Enterprise ERP (SAP S/4HANA
+Finance, GCC VAT and Indian GST) and Advanced Analytics (Power BI, DuckDB,
+Python). Built five production and development platforms covering 2,061
+automated tests, 54 DAX measures and financial workflows spanning SAP S/4HANA
+Finance, Indian GST and GCC VAT.
 
 ================================================================================
   EDUCATION
@@ -28,9 +27,9 @@ Yenepoya University, Bengaluru, Karnataka, India
 CGPA: 8.10 / 10.0
 Specialization: Artificial Intelligence, Cloud Computing & DevOps
 
-Graduated with distinction. Concurrently architected five end-to-end software
-platforms during academic tenure spanning Full-Stack SaaS, Data Analytics, and
-Enterprise ERP systems.
+Graduated with a CGPA of 8.10 / 10.0. Built five end-to-end software platforms
+during the degree, spanning Full-Stack SaaS, Data Analytics and Enterprise ERP
+systems.
 
 Senior Secondary School (CBSE)                                             Completed
 SDM English Medium School, Ujire
@@ -112,13 +111,13 @@ DATA ANALYTICS, BI & ERP
 
 3. FreelanceFlow — Enterprise Freelance & Agency Management        Live
    React 19, Vite 8, Node.js, Express 5, MongoDB Atlas, Razorpay, jsPDF
-   Live: freelanceflow-gules.vercel.app | GitHub: github.com/farhankh8/freelanceflow
+   Live: freelanceflow-blue-delta.vercel.app | GitHub: github.com/farhankh8/freelanceflow
    - 322 production deployments on Vercel + Render
    - Role-Based Access Control: Manager, Worker, Admin, Viewer
    - GST-compliant invoice generation with automatic tax breakdown
    - Speakeasy TOTP 2FA, Helmet CSP, rate limiting
 
-4. Roamind — AI Travel Super-Platform                              Live
+4. Roamind — AI Travel Platform                                      Live
    Next.js 16 App Router, React 19, Tailwind CSS 4, Firebase, Gemini API,
    Anthropic Claude API, Leaflet Maps, Framer Motion
    Live: roamind.vercel.app | GitHub: github.com/farhankh8/roamind

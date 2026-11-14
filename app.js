@@ -1,254 +1,377 @@
 /**
- * KH Mohammad Farhan — Interactive Controller
- * Refined interactions for world-class portfolio UX
+ * KH Mohammad Farhan — portfolio controller
+ *
+ * Motion rules on this page: one easing curve, transform and opacity only,
+ * no looping animation, and every reveal fires once.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initNavbar();
-  initCardSpotlight();
+  initHeader();
   initMobileMenu();
-  initThemeToggle();
-  initScrollProgress();
+  initReveals();
+  initTagline();
   initBackToTop();
   initContactForm();
+  initCopyButtons();
 });
 
-/* ==========================================================================
-   1. Navbar Scroll + Active States
-   ========================================================================== */
-function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('section[id]');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
+/* --------------------------------------------------------------------------
+   1. Header: surface on scroll, current section marked in the navigation
+   -------------------------------------------------------------------------- */
+function initHeader() {
+  const header = document.getElementById('siteHeader');
+  const links = Array.from(document.querySelectorAll('.nav-link'));
+  const sections = links
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
 
-    let current = '';
-    const scrollPosition = window.pageYOffset + 240;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+
+    // The current section is the last one whose top has passed a probe line
+    // a little below the header.
+    const probe = window.scrollY + Math.min(220, window.innerHeight * 0.35);
+    let currentId = '';
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        current = section.getAttribute('id');
+      if (section.offsetTop <= probe) currentId = section.id;
+    });
+
+    links.forEach(link => {
+      const isCurrent = link.getAttribute('href') === '#' + currentId;
+      if (isCurrent) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
       }
     });
+  }
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
       }
-    });
-  });
+    },
+    { passive: true }
+  );
+
+  update();
 }
 
-/* ==========================================================================
-   2. Card Spotlight / Cursor Glow
-   ========================================================================== */
-function initCardSpotlight() {
-  const cards = document.querySelectorAll('.card');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
-  });
-}
-
-/* ==========================================================================
-   3. Mobile Navigation
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   2. Mobile navigation
+   -------------------------------------------------------------------------- */
 function initMobileMenu() {
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
+  const toggle = document.getElementById('menuToggle');
+  const panel = document.getElementById('mobilePanel');
+  if (!toggle || !panel) return;
 
-  if (mobileBtn && mobileMenu) {
-    const setExpanded = (expanded) => {
-      mobileBtn.setAttribute('aria-expanded', String(expanded));
-    };
+  const links = Array.from(panel.querySelectorAll('a'));
 
-    mobileBtn.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.toggle('hidden');
-      setExpanded(!isHidden);
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        setExpanded(false);
-      });
-    });
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-        setExpanded(false);
-        mobileBtn.focus();
-      }
-    });
-  }
-}
-
-/* ==========================================================================
-   4. Theme Toggle (Dark / Light)
-   ========================================================================== */
-function initThemeToggle() {
-  if (!document.getElementById('themeToggle')) return;
-  const toggleBtn = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const html = document.documentElement;
-
-  const savedTheme = localStorage.getItem('theme');
-  const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  if (savedTheme === 'light' || (!savedTheme && !systemDark)) {
-    html.classList.remove('dark');
-    updateThemeIcon(false);
-  } else {
-    html.classList.add('dark');
-    updateThemeIcon(true);
+  function open() {
+    panel.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close navigation');
+    document.body.style.overflow = 'hidden';
   }
 
-  toggleBtn.addEventListener('click', () => {
-    const isDark = html.classList.toggle('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    updateThemeIcon(isDark);
-  });
-}
-
-function updateThemeIcon(isDark) {
-  const icon = document.getElementById('themeIcon');
-  if (!icon) return;
-  if (isDark) {
-    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
-  } else {
-    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+  function close() {
+    panel.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation');
+    document.body.style.overflow = '';
   }
-}
 
-/* ==========================================================================
-   5. Scroll Progress Bar
-   ========================================================================== */
-function initScrollProgress() {
-  const bar = document.getElementById('scrollProgress');
-  if (!bar) return;
-
-  window.addEventListener('scroll', () => {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    bar.style.width = scrolled + '%';
-  });
-}
-
-/* ==========================================================================
-   6. Back to Top Button
-   ========================================================================== */
-function initBackToTop() {
-  const btn = document.getElementById('backToTop');
-  if (!btn) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-      btn.classList.add('visible');
+  toggle.addEventListener('click', () => {
+    if (panel.classList.contains('is-open')) {
+      close();
     } else {
-      btn.classList.remove('visible');
+      open();
     }
   });
 
-  btn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  links.forEach(link => link.addEventListener('click', close));
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && panel.classList.contains('is-open')) {
+      close();
+      toggle.focus();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024 && panel.classList.contains('is-open')) {
+      close();
+    }
   });
 }
 
-/* ==========================================================================
-   7. Contact Form
-   ========================================================================== */
+/* --------------------------------------------------------------------------
+   3. Section reveals, fired once
+   -------------------------------------------------------------------------- */
+function initReveals() {
+  const items = Array.from(document.querySelectorAll('.reveal'));
+  if (!items.length) return;
+
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    items.forEach(item => item.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
+  );
+
+  items.forEach(item => observer.observe(item));
+}
+
+/* --------------------------------------------------------------------------
+   4. Tagline reveal, word by word, as each word crosses the trigger line
+   -------------------------------------------------------------------------- */
+function initTagline() {
+  const lines = Array.from(document.querySelectorAll('[data-tagline]'));
+  if (!lines.length) return;
+
+  const words = [];
+
+  lines.forEach(line => {
+    const text = line.textContent.replace(/\s+/g, ' ').trim();
+    line.textContent = '';
+
+    text.split(' ').forEach((word, index, all) => {
+      const span = document.createElement('span');
+      span.className = 'tagline-word';
+      span.textContent = word;
+      line.appendChild(span);
+      if (index < all.length - 1) {
+        line.appendChild(document.createTextNode(' '));
+      }
+      words.push(span);
+    });
+  });
+
+  if (reducedMotion) {
+    words.forEach(word => word.classList.add('is-lit'));
+    return;
+  }
+
+  const trigger = window.innerHeight * 0.72;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    words.forEach(word => {
+      if (word.classList.contains('is-lit')) return;
+      const box = word.getBoundingClientRect();
+      if (box.top <= trigger) word.classList.add('is-lit');
+    });
+  }
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    },
+    { passive: true }
+  );
+
+  window.addEventListener('resize', update);
+  update();
+}
+
+/* --------------------------------------------------------------------------
+   5. Back to top
+   -------------------------------------------------------------------------- */
+function initBackToTop() {
+  const button = document.getElementById('backToTop');
+  if (!button) return;
+
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    button.classList.toggle('is-visible', window.scrollY > 600);
+  }
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(update);
+      }
+    },
+    { passive: true }
+  );
+
+  button.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  });
+
+  update();
+}
+
+/* --------------------------------------------------------------------------
+   6. Contact form
+   -------------------------------------------------------------------------- */
 function initContactForm() {
   const form = document.getElementById('contactForm');
-  const btn = document.getElementById('contactBtn');
-  const successMsg = document.getElementById('formSuccess');
-
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  const button = document.getElementById('contactBtn');
+  const buttonLabel = document.getElementById('contactBtnLabel');
+  const status = document.getElementById('formStatus');
 
-    if (!form.reportValidity()) return;
+  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-    const originalBtnText = btn.innerHTML;
-    btn.innerHTML = 'Sending...';
-    btn.disabled = true;
+  function fieldOf(input) {
+    return input.closest('[data-field]');
+  }
 
-    const formData = new FormData(form);
+  function validateField(input) {
+    const wrapper = fieldOf(input);
+    if (!wrapper) return true;
+
+    let valid = true;
+    const value = input.value.trim();
+
+    if (input.required && value === '') {
+      valid = false;
+    } else if (input.type === 'email' && value !== '' && !EMAIL.test(value)) {
+      valid = false;
+    }
+
+    wrapper.classList.toggle('has-error', !valid);
+    return valid;
+  }
+
+  form.querySelectorAll('input[required], textarea[required]').forEach(input => {
+    input.addEventListener('blur', () => validateField(input));
+    input.addEventListener('input', () => {
+      const wrapper = fieldOf(input);
+      if (wrapper && wrapper.classList.contains('has-error')) validateField(input);
+    });
+  });
+
+  function setStatus(kind, message) {
+    if (!status) return;
+    status.className = 'form-status is-visible form-status--' + kind;
+    status.textContent = message;
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const required = Array.from(form.querySelectorAll('input[required], textarea[required]'));
+    const allValid = required.map(validateField).every(Boolean);
+
+    if (!allValid) {
+      setStatus('error', 'Some fields need attention before this can be sent.');
+      const firstBad = form.querySelector('.has-error input, .has-error textarea');
+      if (firstBad) firstBad.focus();
+      return;
+    }
+
+    const originalLabel = buttonLabel.textContent;
+    button.disabled = true;
+    buttonLabel.textContent = 'Sending';
+
+    const payload = new FormData(form);
 
     fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      body: formData,
+      body: payload,
+      headers: { Accept: 'application/json' },
     })
-      .then(async (response) => {
-        btn.innerHTML = originalBtnText;
-        btn.disabled = false;
+      .then(async response => {
+        button.disabled = false;
+        buttonLabel.textContent = originalLabel;
 
         if (response.ok) {
           form.reset();
-          if (successMsg) {
-            successMsg.classList.remove('hidden');
-            setTimeout(() => { successMsg.classList.add('hidden'); }, 7000);
-          }
-          showToast('Message sent successfully!');
+          setStatus('ok', 'Message sent. I usually reply within two working days.');
+          showToast('Message sent');
         } else {
-          const result = await response.json();
-          showToast('Failed to send. Please try again.');
+          const result = await response.json().catch(() => ({}));
+          setStatus('error', 'The send failed. Email me directly and I will pick it up.');
           console.error('Web3Forms error:', result);
         }
       })
-      .catch((error) => {
-        btn.innerHTML = originalBtnText;
-        btn.disabled = false;
-        showToast('Failed to send. Please try again.');
+      .catch(error => {
+        button.disabled = false;
+        buttonLabel.textContent = originalLabel;
+        setStatus('error', 'The send failed. Email me directly and I will pick it up.');
         console.error('Web3Forms error:', error);
       });
   });
 }
 
-/* ==========================================================================
-   8. Clipboard + Toast
-   ========================================================================== */
-function copyToClipboard(text, message) {
-  navigator.clipboard.writeText(text).then(() => {
-    showToast(message || 'Copied to clipboard!');
-  }).catch(() => {
-    const textarea = document.createElement('textarea');
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    showToast(message || 'Copied to clipboard!');
+/* --------------------------------------------------------------------------
+   7. Copy buttons and toast
+   -------------------------------------------------------------------------- */
+function initCopyButtons() {
+  document.querySelectorAll('[data-copy]').forEach(button => {
+    button.addEventListener('click', () => {
+      const value = button.getAttribute('data-copy');
+      const done = () => showToast('Email address copied');
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(value).then(done).catch(fallbackCopy.bind(null, value, done));
+      } else {
+        fallbackCopy(value, done);
+      }
+    });
   });
 }
 
+function fallbackCopy(value, done) {
+  const area = document.createElement('textarea');
+  area.value = value;
+  area.setAttribute('readonly', '');
+  area.style.position = 'fixed';
+  area.style.opacity = '0';
+  document.body.appendChild(area);
+  area.select();
+  try {
+    document.execCommand('copy');
+  } catch (error) {
+    console.error('Copy failed:', error);
+  }
+  document.body.removeChild(area);
+  done();
+}
+
+let toastTimer;
+
 function showToast(message) {
   const toast = document.getElementById('toast');
-  const toastMsg = document.getElementById('toastMsg');
-  if (!toast || !toastMsg) return;
+  const toastMessage = document.getElementById('toastMsg');
+  if (!toast || !toastMessage) return;
 
-  toastMsg.textContent = message;
-  toast.classList.add('show');
+  toastMessage.textContent = message;
+  toast.classList.add('is-visible');
 
-  setTimeout(() => {
-    toast.classList.remove('show');
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => {
+    toast.classList.remove('is-visible');
   }, 2600);
 }

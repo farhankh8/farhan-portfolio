@@ -2,32 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom design tokens */
+/* Base layer only. Every component lives in style.css so the design
+   system has a single source of truth. */
 @layer base {
   :root {
-    --bg-dark: #08090d;
-    --surface-900: #0d1017;
-    --surface-800: #131722;
-    --surface-700: #1b2130;
-    --surface-600: #252d42;
-    --indigo-primary: #6366f1;
-    --cyan-primary: #06b6d4;
-    --emerald-primary: #10b981;
-    --purple-primary: #a855f7;
-    --font-sans: 'Plus Jakarta Sans', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    color-scheme: dark;
   }
-}
 
-@layer utilities {
-  .text-gradient-purple {
-    background: linear-gradient(135deg, #ffffff 10%, #a5b4fc 60%, #818cf8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
   }
-  .text-gradient-cyan {
-    background: linear-gradient(135deg, #ffffff 10%, #67e8f9 60%, #06b6d4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
+  body {
+    @apply bg-page text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    background: rgba(217, 164, 65, 0.28);
+    color: #f4f7fb;
+  }
+
+  :focus-visible {
+    outline: 2px solid #f0c274;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }

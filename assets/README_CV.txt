@@ -1,9 +1,12 @@
-# CV / Resume Placeholder
+# CV / Resume
 
-Place your PDF CV/resume at:
-`assets/KH_Mohammad_Farhan_CV.pdf`
+The download links on the site point at `KH_Mohammad_Farhan_CV.txt`, a plain
+text version that opens in any browser and needs no plugin.
 
-Until you add your PDF, the "Download CV / Resume" button will show a 404. 
-Options:
-1. Add your actual CV PDF at `assets/KH_Mohammad_Farhan_CV.pdf`
-2. Or update the href in index.html to point to an external CV (Google Drive, LinkedIn, etc.)
+To ship a formatted PDF as well:
+
+1. Add your PDF at `assets/KH_Mohammad_Farhan_CV.pdf`
+2. Point the download links in `index.html` at the `.pdf` path
+
+Search for `assets/KH_Mohammad_Farhan_CV.txt` in `index.html`. There are three
+places: the hero button, the footer link, and the FAQ answer.

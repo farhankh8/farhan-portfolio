@@ -23,6 +23,22 @@
       }
     },
     {
+      "src": "/favicon.svg",
+      "headers": {
+        "content-type": "image/svg+xml"
+      }
+    },
+    {
+      "src": "/og-image.png",
+      "headers": {
+        "content-type": "image/png"
+      }
+    },
+    {
+      "src": "/(privacy)",
+      "dest": "/privacy.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
