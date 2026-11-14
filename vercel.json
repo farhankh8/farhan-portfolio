@@ -3,44 +3,40 @@
   "framework": null,
   "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "routes": [
+  "headers": [
     {
-      "src": "/style.css",
-      "headers": {
-        "content-type": "text/css"
-      }
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
     },
     {
-      "src": "/tailwind.css",
-      "headers": {
-        "content-type": "text/css"
-      }
+      "source": "/style.css",
+      "headers": [{ "key": "Content-Type", "value": "text/css; charset=utf-8" }]
     },
     {
-      "src": "/app.js",
-      "headers": {
-        "content-type": "application/javascript"
-      }
+      "source": "/tailwind.css",
+      "headers": [{ "key": "Content-Type", "value": "text/css; charset=utf-8" }]
     },
     {
-      "src": "/favicon.svg",
-      "headers": {
-        "content-type": "image/svg+xml"
-      }
+      "source": "/app.js",
+      "headers": [{ "key": "Content-Type", "value": "application/javascript; charset=utf-8" }]
     },
     {
-      "src": "/og-image.png",
-      "headers": {
-        "content-type": "image/png"
-      }
+      "source": "/favicon.svg",
+      "headers": [{ "key": "Content-Type", "value": "image/svg+xml" }]
     },
     {
-      "src": "/(privacy)",
-      "dest": "/privacy.html"
+      "source": "/og-image.png",
+      "headers": [{ "key": "Content-Type", "value": "image/png" }]
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/404.html",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
     }
+  ],
+  "rewrites": [
+    { "source": "/privacy", "destination": "/privacy.html" }
   ]
 }
