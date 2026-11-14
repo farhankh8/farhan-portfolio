@@ -151,6 +151,7 @@ step is required for GitHub Pages, but run `npm run build` first so
 - LinkedIn: [linkedin.com/in/khmohammadfarhan](https://www.linkedin.com/in/khmohammadfarhan/)
 - GitHub: [github.com/farhankh8](https://github.com/farhankh8)
 - Location: Bengaluru, Karnataka, India
+- Open to GCC roles on sponsorship, and to roles outside the GCC
 
 ---
 
