@@ -796,17 +796,20 @@ ol {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 4px 12px;
   margin-bottom: 12px;
 }
 
 .preview-block-head .title-4 {
   color: var(--text-soft);
+  white-space: nowrap;
 }
 
 .preview-block-head .mono {
   font-size: 11px;
   color: var(--text-dim);
+  white-space: nowrap;
 }
 
 /* Chart: muted grid, one accent, mono labels. */
@@ -930,6 +933,193 @@ ol {
   .ledger td:nth-child(2) {
     display: none;
   }
+}
+
+/* --------------------------------------------------------------------------
+   8b. Domain panel — the hero shows the three domains, not one project
+   -------------------------------------------------------------------------- */
+.domain-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-control);
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .domain-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.domain-cell {
+  background: var(--surface);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.domain-cell-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--text-dim);
+}
+
+.domain-cell-title {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--text-soft);
+}
+
+.domain-cell-art {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.domain-cell-foot {
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--text-dim);
+}
+
+.term {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 15px;
+  color: var(--text-soft);
+}
+
+.term .prompt {
+  color: var(--accent);
+}
+
+.term .ok {
+  color: var(--positive);
+}
+
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 58px;
+}
+
+.mini-chart i {
+  display: block;
+  flex: 1;
+  background: var(--surface-active);
+  border-radius: 2px 2px 0 0;
+}
+
+.mini-chart i.is-lead {
+  background: var(--accent);
+}
+
+.mini-ledger {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 17px;
+  color: var(--text-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.mini-ledger div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mini-ledger .rule {
+  border-top: 1px solid var(--hairline);
+  margin: 3px 0;
+  padding: 0;
+}
+
+.mini-ledger .total {
+  color: var(--text);
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2px 12px;
+}
+
+.module-grid span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--text-soft);
+}
+
+.module-grid span.is-wide {
+  grid-column: 1 / -1;
+  color: var(--accent-soft);
+}
+
+/* Compact preview used in the narrow project cards. */
+.preview--compact .preview-body {
+  padding: 16px;
+}
+
+.day-row {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-soft);
+}
+
+.day-row .day {
+  flex: 0 0 44px;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--text-dim);
+}
+
+.day-row .place {
+  color: var(--text);
+}
+
+.invoice-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.invoice-row--sum {
+  border-bottom: 0;
+  padding-top: 10px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.invoice-row--head {
+  border-bottom-color: var(--hairline-strong);
+  color: var(--text-dim);
+  font-size: 11px;
+  padding-bottom: 8px;
 }
 
 /* --------------------------------------------------------------------------
